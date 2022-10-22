@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+    <!--
+        Name:Paige Dyer
+        Class: Web development
+        Project: Mapmania lite
+    -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Mania</title>
+    <link rel="stylesheet" href="mapmanialite.css"
+    <script src="mapmanialite.js"></script>
+    <style>
+        #myMapID {
+            height: 100%;
+            width: 100%;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+
+    </style>
+</head>
+<body onload="initApplication()">
+    <h1>Map Mania Lite v1.4</h1>
+
+    <div id="myMapID"></div>
+    <script>
+        var gMap;
+
+function initMap() {
+    gMap = new google.maps.Map(document.getElementById('myMapID'), {
+        center: {lat: 41.878, lng: 10}, zoom:3});
+    
+    var marker = new google.maps.Marker({position:{lat:45.33, lng:-91.49}, map:gMap});
+    
+    google.maps.event.addListener(gMap, 'idle', function(){
+        updateGame()
+    });
+}
+
+function updateGame() {
+    console.log('function UpdateGame() google-maps-step-03');
+    var zoomLevel = gMap.getZoom()
+    var inBounds = false;
+
+    if (gMap.getBounds().contains({lat:45.33,lng:-91.49})){
+        inBounds = true;
+    }
+    console.log("inBounds:"+inBounds+"zoomLevel:"+zoomLevel);
+}
+
+function initApplication() {
+    console.log('Map mania lite - starting');
+}
+    </script>
+
+    <script async defer 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCW5ZHV2_CpU8wlUasENXzokrGuTro_N9s&callback=initMap">
+    </script>
+
+    
+</body>
+</html>
