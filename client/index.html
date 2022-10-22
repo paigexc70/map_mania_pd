@@ -3,15 +3,15 @@
     <!--
         Name:Paige Dyer
         Class: Web development
-        Project: Mapmania lite
+        Project: Mapmania
     -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Map Mania</title>
-    <link rel="stylesheet" href="mapmanialite.css"
-    <script src="mapmanialite.js"></script>
+    <link rel="stylesheet" href="mapmania.css"
+    <script src="mapmania.js"></script>
     <style>
         #myMapID {
             height: 100%;
@@ -28,7 +28,7 @@
     </style>
 </head>
 <body onload="initApplication()">
-    <h1>Map Mania Lite v1.4</h1>
+    <h1>Map Mania Lite v2.2</h1>
 
     <div id="myMapID"></div>
     <script>
@@ -38,26 +38,40 @@ function initMap() {
     gMap = new google.maps.Map(document.getElementById('myMapID'), {
         center: {lat: 41.878, lng: 10}, zoom:3});
     
-    var marker = new google.maps.Marker({position:{lat:45.33, lng:-91.49}, map:gMap});
+    var marker = new google.maps.Marker({position:{lat:41.57, lng:-87.79}, map:gMap});
     
+    var marker = new google.maps.Marker({position:{lat:52.41, lng:0.52}, map:gMap});
+    
+    var marker = new google.maps.Marker({position:{lat:41.06, lng:-111.97}, map:gMap});
+
+    var marker = new google.maps.Marker({position:{lat:40.95, lng:-83.38}, map:gMap});
+
+    var marker = new google.maps.Marker({position:{lat:38.54, lng:-89.85}, map:gMap});
+
+    var marker = new google.maps.Marker({position:{lat:52.48, lng:0.51}, map:gMap});
+
+    var marker = new google.maps.Marker({position:{lat:40.95, lng:-87.62}, map:gMap});
+
+    var marker = new google.maps.Marker({position:{lat:40.11, lng:-88.21}, map:gMap});
+
     google.maps.event.addListener(gMap, 'idle', function(){
         updateGame()
     });
 }
 
 function updateGame() {
-    console.log('function UpdateGame() google-maps-step-03');
+    console.log('function UpdateGame()');
     var zoomLevel = gMap.getZoom()
     var inBounds = false;
 
-    if (gMap.getBounds().contains({lat:45.33,lng:-91.49})){
+    if (gMap.getBounds().contains({lat:41.57,lng:-87.79})){
         inBounds = true;
     }
     console.log("inBounds:"+inBounds+"zoomLevel:"+zoomLevel);
 }
 
 function initApplication() {
-    console.log('Map mania lite - starting');
+    console.log('Map mania - starting');
 }
     </script>
 
